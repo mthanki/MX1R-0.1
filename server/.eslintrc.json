@@ -1,0 +1,20 @@
+{
+  "env": {
+      "browser": true,
+      "commonjs": true,
+      "es2021": true
+  },
+  "extends": [
+      "xo"
+  ],
+  "parserOptions": {
+      "ecmaVersion": 12
+  },
+  "rules": {
+		"semi": ["error", "always"],
+		"quotes": ["error", "double"],
+		"no-undef": ["off", "always"],
+		"new-cap": ["off", "always"],
+		"no-unused-vars": ["off", "always"]
+  }
+}
