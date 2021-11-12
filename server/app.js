@@ -4,6 +4,8 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const http = require("http");
+var cors = require('cors');
+
 const colors = require("colors");
 const connectDB = require("./db");
 
@@ -15,6 +17,7 @@ connectDB();
 const app = express();
 const server = http.createServer(app);
 
+app.use(cors());
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));

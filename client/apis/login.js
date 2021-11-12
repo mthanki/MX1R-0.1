@@ -1,10 +1,11 @@
-const login = async () => {
+const login = async (username, password) => {
   const fetchOptions = {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    credentials: 'include',
+    body: JSON.stringify({ username, password })
+    // credentials: 'include',
   };
-  return await fetch(`/login`, fetchOptions)
+  return await fetch(`http://localhost:3000/auth/login`, fetchOptions)
     .then((res) => res.json())
     .catch((err) => console.log(err));
 };

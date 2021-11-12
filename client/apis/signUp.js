@@ -3,9 +3,9 @@ const signUp = async (username, password, matchPassword) => {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ username, password, matchPassword }),
-    credentials: 'include',
+    // credentials: 'include',
   };
-  return await fetch(`auth/signup`, fetchOptions)
+  return await fetch(`http://localhost:3000/auth/signup`, fetchOptions)
     .then((res) => res.json())
     .catch((err) => console.log(err));
 };

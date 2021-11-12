@@ -1,11 +1,21 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import {
+  Linking,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import AuthScreenContainer from "../components/containers/AuthScreensContainer";
 import { ThemedButton } from "../components/ThemedButton";
 
 export default function StartUpScreen({ navigation }) {
+  const handleAccRecoverClick = () => {
+    Linking.openURL("https://google.com");
+  };
+
   return (
-    <AuthScreenContainer>
+    <AuthScreenContainer showTerms>
       <View>
         <ThemedButton
           onPress={() => navigation.push("SignUpScreen")}
@@ -36,9 +46,13 @@ export default function StartUpScreen({ navigation }) {
             account
           </Text>
         </ThemedButton>
-        <Text style={{ textAlign: "center", padding: 10, color: "silver" }}>
-          Can't access your account?
-        </Text>
+        <TouchableOpacity onPress={handleAccRecoverClick}>
+          <Text
+            style={{ textAlign: "center", padding: 10, color: "lightblue" }}
+          >
+            Can't access your account?
+          </Text>
+        </TouchableOpacity>
       </View>
     </AuthScreenContainer>
   );

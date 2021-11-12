@@ -1,11 +1,12 @@
 {
   "expo": {
-    "name": "client",
-    "slug": "client",
+    "name": "expo-tests",
+    "slug": "expo-tests",
     "version": "1.0.0",
     "assetBundlePatterns": [
       "**/*"
-    ]
+    ],
+    "description": "Just some basic UI design."
   },
   "name": "client"
 }

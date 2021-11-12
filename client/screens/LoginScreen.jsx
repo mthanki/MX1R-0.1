@@ -1,10 +1,11 @@
 import * as React from "react";
-import { Text, View } from "react-native";
+import { KeyboardAvoidingView, Text, View } from "react-native";
 import { Formik } from "formik";
 import * as Yup from "yup";
 import { ThemedButton } from "../components/ThemedButton";
 import { ThemedTextInput } from "../components/form/formItems/TextField";
 import AuthScreenContainer from "../components/containers/AuthScreensContainer";
+import login from "../apis/login";
 
 const LoginSchema = Yup.object().shape({
   username: Yup.string()
@@ -18,11 +19,16 @@ const LoginSchema = Yup.object().shape({
 });
 
 export default function LoginScreen() {
+  const handleSubmit = async ({ username, password }) => {
+    const response = await login(username, password);
+    console.log(response);
+  };
+
   return (
     <AuthScreenContainer>
       <Formik
         initialValues={{ username: "", password: "" }}
-        onSubmit={(values) => console.log(values)}
+        onSubmit={handleSubmit}
         validationSchema={LoginSchema}
       >
         {({ handleChange, handleBlur, handleSubmit, values }) => (
